@@ -1,34 +1,37 @@
-//package com.dtteam.dtaddon_lib.fruits;
-//
-//import com.dtteam.dynamictrees.api.registry.TypedRegistry;
-//import com.dtteam.dynamictrees.block.branch.BranchBlock;
-//import com.dtteam.dynamictrees.block.pod.Pod;
-//import com.dtteam.dynamictrees.block.pod.PodBlock;
-//import com.dtteam.dynamictrees.tree.TreeHelper;
-//import net.minecraft.core.BlockPos;
-//import net.minecraft.resources.Identifier;
-//import net.minecraft.world.level.LevelReader;
-//import net.minecraft.world.level.block.Block;
-//import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-//import net.minecraft.world.level.block.state.BlockState;
-//
-//// From DTPHC2
-//public class PalmPod extends Pod {
-//
-//    public static final TypedRegistry.EntryType<Pod> TYPE = TypedRegistry.newType(PalmPod::new);
-//
-//    public PalmPod(Identifier registryName) {
-//        super(registryName);
-//    }
-//
-//    protected PodBlock createBlock(Identifier id, Block.Properties properties) {
-//        return new PodBlock(id, properties, this){
-//            @Override public boolean isSupported(LevelReader world, BlockPos pos, BlockState state) {
-//                final BlockState branchState = world.getBlockState(pos.relative(state.getValue(HorizontalDirectionalBlock.FACING)));
-//                final BranchBlock branch = TreeHelper.getBranch(branchState);
-//                return branch != null && branch.getRadius(branchState) >= 2;
-//            }
-//        };
-//    }
-//
-//}
+package com.dtteam.dtaddon_lib.fruits;
+
+import com.dtteam.dynamictrees.api.registry.TypedRegistry;
+import com.dtteam.dynamictrees.block.pod.Pod;
+import net.minecraft.resources.Identifier;
+
+// From DTPHC2
+public class PalmPod extends Pod {
+
+    public static final TypedRegistry.EntryType<Pod> TYPE = TypedRegistry.newType(PalmPod::new);
+
+    private int minRadius = 2;
+
+    public PalmPod(Identifier registryName) {
+        super(registryName);
+    }
+
+    @Override
+    public void setMinRadius(int minRadius) {
+        super.setMinRadius(minRadius);
+        this.minRadius = minRadius;
+    }
+
+    /**
+     * Palm pods hang off the crown, where the trunk is at its thickest, so any branch at or above the
+     * minimum radius supports them — unlike the base implementation there is no upper bound.
+     *
+     * <p>Up to Dynamic Trees 1.7 this was a {@code PodBlock.isSupported} override installed through
+     * {@code Pod.createBlock}. That factory hook is gone in 1.8.0, but the radius test now delegates
+     * to the pod, so it hooks in here instead.</p>
+     */
+    @Override
+    public boolean isValidRadius(int radius) {
+        return radius >= this.minRadius;
+    }
+
+}
