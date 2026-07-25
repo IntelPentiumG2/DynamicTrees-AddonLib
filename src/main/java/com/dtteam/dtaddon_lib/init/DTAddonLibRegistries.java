@@ -3,7 +3,7 @@ package com.dtteam.dtaddon_lib.init;
 import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
 import com.dtteam.dtaddon_lib.blocks.leaves.*;
 import com.dtteam.dtaddon_lib.cell.DTAddonLibCellKits;
-import com.dtteam.dtaddon_lib.fruits.PalmPod;
+import com.dtteam.dtaddon_lib.fruits.*;
 import com.dtteam.dtaddon_lib.genfeature.DTAddonLibGenFeatures;
 import com.dtteam.dtaddon_lib.growthlogic.DTAddonLibGrowthLogicKits;
 import com.dtteam.dtaddon_lib.tree.family.*;
@@ -115,23 +115,20 @@ public class DTAddonLibRegistries {
         }
     }
 
-//    @SubscribeEvent
-//    public static void registerFruitType(final TypeRegistryEvent<Fruit> event) {
-//        if (event.isEntryOfType(Fruit.class)) {
-//            event.registerType(DynamicTreesAddonLib.location("offset_down"), OffsetFruit.TYPE);
-//            event.registerType(DynamicTreesAddonLib.location("falling_fruit"), FallingFruit.TYPE);
-//            event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebFruit.TYPE);
-//        }
-//    }
+    @SubscribeEvent
+    public static void registerFruitType(final TypeRegistryEvent<Fruit> event) {
+        if (event.isEntryOfType(Fruit.class)) {
+            event.registerType(DynamicTreesAddonLib.location("offset_down"), OffsetFruit.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("falling_fruit"), FallingFruit.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebFruit.TYPE);
+        }
+    }
 //
     @SubscribeEvent
     public static void registerPodType(final TypeRegistryEvent<Pod> event) {
         if (event.isEntryOfType(Pod.class)) {
             event.registerType(DynamicTreesAddonLib.location("palm"), PalmPod.TYPE);
-            // falling_palm needs a custom PodBlock, which Dynamic Trees 1.8.0 no longer lets an
-            // add-on supply (Pod.createBlock is final and hardcodes PodBlock). Restore this once
-            // the block factory hook is back.
-            // event.registerType(DynamicTreesAddonLib.location("falling_palm"), FallingPalmPod.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("falling_palm"), FallingPalmPod.TYPE);
         }
     }
 }
