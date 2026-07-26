@@ -1,6 +1,0 @@
-{
-  "loader": "dynamictrees:large_palm_fronds",
-  "textures": {
-    "frond": "dtaddon_lib:block/palm_frond"
-  }
-}

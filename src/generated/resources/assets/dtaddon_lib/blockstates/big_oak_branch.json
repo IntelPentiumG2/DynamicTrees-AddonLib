@@ -1,7 +1,12 @@
 {
   "variants": {
     "": {
-      "model": "dtaddon_lib:block/big_oak_branch"
+      "type": "dynamictrees:branch",
+      "family": "dtaddon_lib:big_oak",
+      "textures": {
+        "bark": "minecraft:block/oak_log",
+        "rings": "minecraft:block/oak_log_top"
+      }
     }
   }
 }

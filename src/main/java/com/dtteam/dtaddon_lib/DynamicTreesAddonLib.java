@@ -1,8 +1,10 @@
 package com.dtteam.dtaddon_lib;
 
+import com.dtteam.dtaddon_lib.data.DTAddonLibExtraModelGenerator;
 import com.dtteam.dtaddon_lib.init.DTAddonLibBlocks;
 //import com.dtteam.dtaddon_lib.init.DTAddonLibPlusRegistries;
 import com.dtteam.dtaddon_lib.init.DTAddonLibRegistries;
+import com.dtteam.dynamictrees.treepack.Resources;
 import com.dtteam.dynamictrees.block.fruit.Fruit;
 import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
 import com.dtteam.dynamictrees.block.pod.Pod;
@@ -63,6 +65,10 @@ public final class DynamicTreesAddonLib {
     }
 
     private void gatherClientData(final GatherDataEvent.Client event) {
+        // GatherDataEvent only fires for mods named in --mod, so Dynamic Trees' own listener
+        // does not run here. Flag the loaded tree pack entries for generation ourselves.
+        Resources.MANAGER.gatherData();
+        GatherDataHelper.addModelGenerator(MOD_ID, new DTAddonLibExtraModelGenerator());
         GatherDataHelper.gatherClientData(MOD_ID, event,
                 SoilProperties.REGISTRY,
                 Family.REGISTRY,

@@ -1,7 +1,7 @@
 {
   "values": [
+    "dtaddon_lib:fir_sapling",
     "dtaddon_lib:palm_sapling",
-    "dtaddon_lib:poplar_sapling",
-    "dtaddon_lib:fir_sapling"
+    "dtaddon_lib:poplar_sapling"
   ]
 }

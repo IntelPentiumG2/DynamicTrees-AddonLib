@@ -1,6 +1,0 @@
-{
-  "parent": "dynamictrees:block/smartmodel/palm/core_bottom",
-  "textures": {
-    "core_bottom": "dtaddon_lib:block/palm_base"
-  }
-}

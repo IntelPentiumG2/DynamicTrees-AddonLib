@@ -1,0 +1,12 @@
+{
+  "block.dtaddon_lib.big_oak_branch": "Big Oak Tree",
+  "block.dtaddon_lib.fir_branch": "Fir Tree",
+  "block.dtaddon_lib.palm_branch": "Palm Tree",
+  "item.dtaddon_lib.big_oak_branch": "Big Oak Tree",
+  "item.dtaddon_lib.fir_branch": "Fir Tree",
+  "item.dtaddon_lib.palm_branch": "Palm Tree",
+  "item.dtaddon_lib.palm_seed": "Palm Seed",
+  "species.dtaddon_lib.fir": "Fir",
+  "species.dtaddon_lib.palm": "Palm",
+  "species.dtaddon_lib.poplar": "Poplar"
+}

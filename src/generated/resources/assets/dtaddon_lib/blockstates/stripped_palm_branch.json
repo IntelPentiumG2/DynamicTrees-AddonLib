@@ -1,7 +1,12 @@
 {
   "variants": {
     "": {
-      "model": "dtaddon_lib:block/stripped_palm_branch"
+      "type": "dynamictrees:branch",
+      "family": "dtaddon_lib:palm",
+      "textures": {
+        "bark": "minecraft:block/stripped_jungle_log",
+        "rings": "minecraft:block/stripped_jungle_log_top"
+      }
     }
   }
 }

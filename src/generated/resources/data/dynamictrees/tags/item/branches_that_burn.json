@@ -1,7 +1,7 @@
 {
   "values": [
-    "dtaddon_lib:palm_branch",
+    "dtaddon_lib:big_oak_branch",
     "dtaddon_lib:fir_branch",
-    "dtaddon_lib:big_oak_branch"
+    "dtaddon_lib:palm_branch"
   ]
 }

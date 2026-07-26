@@ -98,6 +98,15 @@ neoForge {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+tasks.withType(ProcessResources).configureEach {
+    // Both maple spiles have hand-authored block state definitions -- a multipart dispatch over
+    // facing, fill level and syrup stage that Dynamic Trees' generators cannot express. Data
+    // generation still emits a plain definition for them so that vanilla's "every block needs a
+    // model" check passes; EXCLUDE keeps the first copy on the path, which is src/main/resources,
+    // so the hand-authored one wins.
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 configurations {
     runtimeClasspath.extendsFrom localRuntime
 }

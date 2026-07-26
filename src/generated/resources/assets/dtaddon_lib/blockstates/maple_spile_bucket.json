@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dtaddon_lib:block/maple_spile_bucket"
+    }
+  }
+}

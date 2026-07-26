@@ -1,8 +1,8 @@
 {
   "values": [
-    "dtaddon_lib:palm_leaves",
-    "dtaddon_lib:poplar_leaves",
+    "dtaddon_lib:cypress_leaves",
     "dtaddon_lib:fir_leaves",
-    "dtaddon_lib:cypress_leaves"
+    "dtaddon_lib:palm_leaves",
+    "dtaddon_lib:poplar_leaves"
   ]
 }
